@@ -1,0 +1,90 @@
+C:\Android\maw3idi_project\maw3idi_project/
+│
+├── android/                         # ملفات Android الخاصة (لا تلمسها إلا نادراً)
+├── ios/                             # ملفات iOS الخاصة
+├── linux/                           # (اختياري) دعم سطح المكتب لينكس
+├── macos/                           # (اختياري) دعم سطح المكتب ماك
+├── web/                             # (اختياري) دعم الـ Web
+├── windows/                         # (اختياري) دعم سطح المكتب ويندوز
+│
+├── lib/                             # 🔥 قلب التطبيق (كل الكود هنا)
+│   │
+│   ├── main.dart                    # نقطة الدخول إلى التطبيق
+│   │
+│   ├── core/                        # 🔹 المكونات الأساسية (Core)
+│   │   ├── constants/               # الثوابت (الألوان، الخطوط، النصوص)
+│   │   │   ├── app_colors.dart
+│   │   │   └── app_strings.dart
+│   │   │
+│   │   ├── theme/                   # إعدادات الثيم (الوضع الفاتح/الداكن)
+│   │   │   └── app_theme.dart
+│   │   │
+│   │   ├── utils/                   # دوال مساعدة عامة
+│   │   │   ├── validators.dart      # التحقق من صحة الإدخال
+│   │   │   └── date_formatter.dart
+│   │   │
+│   │   └── widgets/                 # ويدجت عامة قابلة لإعادة الاستخدام
+│   │       ├── custom_button.dart
+│   │       ├── custom_text_field.dart
+│   │       └── loading_indicator.dart
+│   │
+│   ├── features/                    # 🔹 ميزات التطبيق (كل ميزة لوحدها)
+│   │   │
+│   │   ├── auth/                    # ميزة المصادقة (تسجيل الدخول)
+│   │   │   ├── data/                # طبقة البيانات
+│   │   │   │   ├── models/          # موديلات (مثل UserModel)
+│   │   │   │   │   └── user_model.dart
+│   │   │   │   ├── datasources/     # مصادر البيانات (API / Local)
+│   │   │   │   │   └── auth_remote_datasource.dart
+│   │   │   │   └── repositories/    # مستودع (ينفذ واجهة المجال)
+│   │   │   │       └── auth_repository_impl.dart
+│   │   │   │
+│   │   │   ├── domain/              # طبقة الأعمال (المنطق)
+│   │   │   │   ├── entities/        # كيانات الأعمال
+│   │   │   │   │   └── user_entity.dart
+│   │   │   │   ├── repositories/    # واجهة المستودع
+│   │   │   │   │   └── auth_repository.dart
+│   │   │   │   └── usecases/        # حالات الاستخدام (Login, Register)
+│   │   │   │       ├── login_usecase.dart
+│   │   │   │       └── register_usecase.dart
+│   │   │   │
+│   │   │   └── presentation/        # طبقة العرض (UI + State Management)
+│   │   │       ├── cubit/           # إدارة الحالة (BLoC / Cubit)
+│   │   │       │   └── auth_cubit.dart
+│   │   │       ├── screens/         # الشاشات
+│   │   │       │   ├── login_screen.dart
+│   │   │       │   └── register_screen.dart
+│   │   │       └── widgets/         # ويدجت خاصة بهذه الميزة
+│   │   │           └── auth_form.dart
+│   │   │
+│   │   ├── home/                    # ميزة الصفحة الرئيسية
+│   │   │   ├── data/
+│   │   │   ├── domain/
+│   │   │   └── presentation/
+│   │   │
+│   │   └── profile/                 # ميزة الملف الشخصي
+│   │       ├── data/
+│   │       ├── domain/
+│   │       └── presentation/
+│   │
+│   ├── injection_container.dart    # حقن التبعيات (Dependency Injection)
+│   └── routes.dart                 # إدارة المسارات (Navigation)
+│
+├── assets/                          # 🔹 الملفات الثابتة
+│   ├── images/                      # الصور
+│   │   ├── logo.png
+│   │   └── background.jpg
+│   ├── fonts/                       # الخطوط المخصصة
+│   │   └── cairo.ttf
+│   └── translations/                # ملفات الترجمة (إذا استخدمت localization)
+│       ├── en.json
+│       └── ar.json
+│
+├── test/                            # اختبارات الوحدات
+│   ├── unit/
+│   └── widget/
+│
+├── pubspec.yaml                     # 🔥 ملف الحزم والإعدادات
+├── pubspec.lock
+├── README.md
+└── analysis_options.yaml            # قواعد تحليل الكود
