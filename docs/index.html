@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>منظومة DiDi &amp; Uber Clone - المعاينة الحية والتفاعلية</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    :root {
+      --bg-dark: #0f172a;
+      --card-bg: #1e293b;
+      --primary: #38bdf8;
+      --accent: #0284c7;
+      --success: #22c55e;
+      --text: #f8fafc;
+      --text-muted: #94a3b8;
+      --border: #334155;
+    }
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+    body {
+      background-color: var(--bg-dark);
+      color: var(--text);
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      line-height: 1.6;
+      padding: 20px;
+    }
+    header {
+      text-align: center;
+      padding: 40px 20px;
+      max-width: 900px;
+      margin: 0 auto 30px auto;
+    }
+    header h1 {
+      font-size: 2.4rem;
+      color: var(--primary);
+      margin-bottom: 10px;
+    }
+    header p {
+      font-size: 1.1rem;
+      color: var(--text-muted);
+    }
+    .badge {
+      display: inline-block;
+      background: rgba(56, 189, 248, 0.15);
+      color: var(--primary);
+      padding: 6px 16px;
+      border-radius: 20px;
+      font-weight: bold;
+      font-size: 0.9rem;
+      margin-bottom: 15px;
+      border: 1px solid rgba(56, 189, 248, 0.3);
+    }
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 30px;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    .card {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      padding: 24px;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.4);
+      transition: transform 0.3s ease;
+    }
+    .card:hover {
+      transform: translateY(-5px);
+    }
+    .card h3 {
+      font-size: 1.3rem;
+      color: var(--primary);
+      margin-bottom: 15px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .card img {
+      width: 100%;
+      height: auto;
+      border-radius: 16px;
+      border: 1px solid var(--border);
+      background: #000;
+    }
+    .full-card {
+      grid-column: 1 / -1;
+    }
+    footer {
+      text-align: center;
+      margin-top: 50px;
+      padding: 30px;
+      border-top: 1px solid var(--border);
+      color: var(--text-muted);
+    }
+    .btn-github {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: var(--accent);
+      color: #fff;
+      padding: 12px 28px;
+      border-radius: 12px;
+      text-decoration: none;
+      font-weight: bold;
+      margin-top: 20px;
+    }
+    .btn-github:hover {
+      background: #0369a1;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="badge"><i class="fa-solid fa-car"></i> Live System Showcase</div>
+    <h1>تطبيق الرحلات والديلفري المتكامل (DiDi / Uber Clone)</h1>
+    <p>نظام برمجي مكتمل للعميل والسائق ولوحة التحكم الحية مع التتبع الجغرافي اللحظي وحساب الأجرة الديناميكي</p>
+    <a href="https://github.com/Mohamed-Alaa24/maw3idi_project" class="btn-github" target="_blank">
+      <i class="fa-brands fa-github"></i> مستودع المشروع على GitHub
+    </a>
+  </header>
+
+  <div class="grid">
+    <div class="card">
+      <h3><i class="fa-solid fa-mobile-screen-button"></i> 1. تطبيق العميل (Rider Tracking)</h3>
+      <p style="color: var(--text-muted); font-size: 0.9rem; margin-bottom: 12px;">تتبع موقع السائق المباشر عبر الشوارع، الوقت المتوقع للوصول، والشريط الزمني لمراحل الرحلة.</p>
+      <img src="../screenshots/01_customer_ride_tracking.svg" alt="Rider App">
+    </div>
+
+    <div class="card">
+      <h3><i class="fa-solid fa-taxi"></i> 2. شاشة السائق (Driver Terminal)</h3>
+      <p style="color: var(--text-muted); font-size: 0.9rem; margin-bottom: 12px;">ملاحظة حالة الاتصال (Online/Offline)، إرسال إحداثيات الـ GPS، والتحكم بمراحل الرحلة.</p>
+      <img src="../screenshots/02_driver_terminal_active_trip.svg" alt="Driver Terminal">
+    </div>
+
+    <div class="card">
+      <h3><i class="fa-solid fa-bell"></i> 3. استقبال الطلبات الحية (Incoming Request)</h3>
+      <p style="color: var(--text-muted); font-size: 0.9rem; margin-bottom: 12px;">عرض تفاصيل الطلب مع عداد تنازلي للسائق، حساب الأجرة، ومواقع الركوب والوصول.</p>
+      <img src="../screenshots/03_incoming_ride_request_dialog.svg" alt="Incoming Request">
+    </div>
+
+    <div class="card full-card">
+      <h3><i class="fa-solid fa-chart-line"></i> 4. لوحة تحكم الإدارة لأسطول السيارات (SaaS Fleet Admin Panel)</h3>
+      <p style="color: var(--text-muted); font-size: 0.9rem; margin-bottom: 12px;">متابعة أرباح المنصة وعمولات الرحلات، خريطة موقع السائقين المباشرة، وتوثيق أوراق ورخص القيادة (KYC).</p>
+      <img src="../screenshots/04_admin_fleet_dashboard.svg" alt="Admin SaaS Panel">
+    </div>
+  </div>
+
+  <footer>
+    <p>© 2026 maw3idi_project • DiDi &amp; Uber Clone System • All rights reserved</p>
+  </footer>
+
+</body>
+</html>

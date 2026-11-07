@@ -21,23 +21,48 @@ app.use(express.json());
 
 // Socket.io Logic
 io.on('connection', (socket) => {
-  console.log('A user connected:', socket.id);
+  console.log('User connected:', socket.id);
 
   socket.on('join_order', (orderId) => {
     socket.join(`order_${orderId}`);
-    console.log(`User joined order room: order_${orderId}`);
+    console.log(`Socket ${socket.id} joined order room: order_${orderId}`);
+  });
+
+  socket.on('join_driver_room', (driverId) => {
+    socket.join(`driver_${driverId}`);
+    console.log(`Driver ${driverId} joined room driver_${driverId}`);
+  });
+
+  socket.on('driver_online', (data) => {
+    socket.join('online_drivers');
+    console.log(`Driver ${data?.driverId || socket.id} is now ONLINE`);
+  });
+
+  socket.on('driver_offline', (data) => {
+    socket.leave('online_drivers');
+    console.log(`Driver ${data?.driverId || socket.id} is now OFFLINE`);
   });
 
   socket.on('update_location', (data) => {
-    // data: { orderId, lat, lng }
-    io.to(`order_${data.orderId}`).emit('location_updated', {
-      lat: data.lat,
-      lng: data.lng
+    // data: { orderId, driverId, lat, lng, bearing }
+    if (data.orderId) {
+      io.to(`order_${data.orderId}`).emit('location_updated', {
+        lat: data.lat,
+        lng: data.lng,
+        bearing: data.bearing || 0
+      });
+    }
+  });
+
+  socket.on('ride_status_update', (data) => {
+    // data: { orderId, status }
+    io.to(`order_${data.orderId}`).emit('status_changed', {
+      status: data.status
     });
   });
 
   socket.on('disconnect', () => {
-    console.log('User disconnected');
+    console.log('User disconnected:', socket.id);
   });
 });
 

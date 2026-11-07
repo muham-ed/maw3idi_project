@@ -1,0 +1,49 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 820" width="400" height="820">
+  <rect width="400" height="820" rx="40" fill="#1e1e1e" />
+  <rect x="10" y="10" width="380" height="800" rx="32" fill="#121212" />
+
+  <!-- Map Dimmed Background -->
+  <rect x="10" y="50" width="380" height="750" fill="#1a222d" opacity="0.6" />
+  <path d="M 40,150 Q 180,280 340,400" fill="none" stroke="#2c3a4e" stroke-width="20" />
+
+  <!-- Overlay Dimmed Backdrop -->
+  <rect x="10" y="50" width="380" height="750" fill="#000000" opacity="0.5" />
+
+  <!-- Bottom Ride Request Sheet -->
+  <rect x="20" y="440" width="360" height="340" rx="28" fill="#1e1e1e" stroke="#007AFF" stroke-width="2" />
+
+  <!-- Header & Timer Ring -->
+  <circle cx="200" cy="440" r="28" fill="#1e1e1e" stroke="#007AFF" stroke-width="4" />
+  <text x="200" y="446" fill="#007AFF" font-family="sans-serif" font-size="16" font-weight="bold" text-anchor="middle">12s</text>
+
+  <rect x="40" y="480" width="70" height="24" rx="12" fill="#2e7d32" opacity="0.3" />
+  <text x="75" y="496" fill="#4CAF50" font-family="sans-serif" font-size="11" font-weight="bold" text-anchor="middle">RIDE TAXI</text>
+
+  <text x="340" y="498" fill="#007AFF" font-family="sans-serif" font-size="24" font-weight="bold" text-anchor="end">38.50 SAR</text>
+
+  <line x1="40" y1="520" x2="360" y2="520" stroke="#333333" stroke-width="1" />
+
+  <!-- Addresses -->
+  <circle cx="55" cy="555" r="8" fill="#4CAF50" />
+  <text x="75" y="550" fill="#888888" font-family="sans-serif" font-size="10">PICKUP LOCATION</text>
+  <text x="75" y="568" fill="#ffffff" font-family="sans-serif" font-size="13" font-weight="bold">Riyadh Park Mall • Gate 2</text>
+
+  <line x1="55" y1="570" x2="55" y2="600" stroke="#555555" stroke-width="2" stroke-dasharray="4 2" />
+
+  <circle cx="55" cy="615" r="8" fill="#F44336" />
+  <text x="75" y="610" fill="#888888" font-family="sans-serif" font-size="10">DROPOFF LOCATION</text>
+  <text x="75" y="628" fill="#ffffff" font-family="sans-serif" font-size="13" font-weight="bold">King Khalid Airport • Terminal 5</text>
+
+  <!-- Distance & ETA Stats -->
+  <rect x="40" y="650" width="320" height="40" rx="10" fill="#2a2a2a" />
+  <text x="100" y="674" fill="#aaaaaa" font-family="sans-serif" font-size="12" text-anchor="middle">4.2 km away</text>
+  <line x1="200" y1="655" x2="200" y2="685" stroke="#444444" stroke-width="1" />
+  <text x="300" y="674" fill="#aaaaaa" font-family="sans-serif" font-size="12" text-anchor="middle">18 mins trip</text>
+
+  <!-- Buttons -->
+  <rect x="40" y="710" width="150" height="48" rx="14" fill="#2a2a2a" />
+  <text x="115" y="739" fill="#888888" font-family="sans-serif" font-size="14" font-weight="bold" text-anchor="middle">Decline</text>
+
+  <rect x="205" y="710" width="155" height="48" rx="14" fill="#2E7D32" />
+  <text x="282" y="739" fill="#ffffff" font-family="sans-serif" font-size="14" font-weight="bold" text-anchor="middle">ACCEPT RIDE</text>
+</svg>

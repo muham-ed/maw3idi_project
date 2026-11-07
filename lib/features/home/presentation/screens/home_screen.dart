@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:go_router/go_router.dart';
 import 'package:maw3idi_project/features/home/presentation/cubit/home_cubit.dart';
 import 'package:maw3idi_project/core/constants/app_colors.dart';
 import 'package:maw3idi_project/features/cart/domain/entities/cart_item_entity.dart';
@@ -96,7 +95,7 @@ class _HomeScreenState extends State<HomeScreen> {
               selected: isSelected,
               onSelected: (val) => setState(() => _selectedCategory = categories[index]),
               backgroundColor: Colors.white,
-              selectedColor: AppColors.primary.withOpacity(0.2),
+              selectedColor: AppColors.primary.withValues(alpha: 0.2),
               labelStyle: TextStyle(color: isSelected ? AppColors.primary : Colors.black),
               shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
             ),

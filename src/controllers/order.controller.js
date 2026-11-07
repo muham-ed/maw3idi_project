@@ -2,17 +2,42 @@ const Order = require('../models/order.model');
 
 exports.createOrder = async (req, res) => {
   try {
-    const { total, address } = req.body;
+    const {
+      total,
+      fare,
+      address,
+      pickupAddress,
+      dropoffAddress,
+      pickupLat,
+      pickupLng,
+      dropoffLat,
+      dropoffLng,
+      estimatedDistanceKm,
+      estimatedDurationMin,
+      serviceType
+    } = req.body;
+
     const clientId = req.userData.userId;
 
     const newOrder = await Order.create({
-      total,
-      address,
+      total: total || fare || 0.00,
+      fare: fare || total || 0.00,
+      address: address || dropoffAddress || 'Customer Location',
+      pickupAddress: pickupAddress || 'Pickup Location',
+      dropoffAddress: dropoffAddress || address || 'Dropoff Location',
+      pickupLat: pickupLat || 24.7136,
+      pickupLng: pickupLng || 46.6753,
+      dropoffLat: dropoffLat || 24.7236,
+      dropoffLng: dropoffLng || 46.6853,
+      estimatedDistanceKm: estimatedDistanceKm || 5.2,
+      estimatedDurationMin: estimatedDurationMin || 12,
+      serviceType: serviceType || 'ride',
       clientId,
       status: 'pending'
     });
 
-    // Notify nearby drivers (Mock logic for now)
+    // Notify online drivers
+    req.io.to('online_drivers').emit('new_order_available', newOrder);
     req.io.emit('new_order_available', newOrder);
 
     res.status(201).json(newOrder);

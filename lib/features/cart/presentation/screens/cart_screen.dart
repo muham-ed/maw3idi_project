@@ -3,7 +3,6 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 import 'package:maw3idi_project/features/cart/presentation/cubit/cart_cubit.dart';
 import 'package:maw3idi_project/core/widgets/custom_button.dart';
-import 'package:maw3idi_project/core/constants/app_colors.dart';
 
 class CartScreen extends StatelessWidget {
   const CartScreen({super.key});

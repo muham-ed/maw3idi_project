@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <title>صور ومعاينة واجهات تطبيق DiDi / Uber Clone</title>
+  <style>
+    body {
+      background-color: #0f172a;
+      color: #f8fafc;
+      font-family: system-ui, -apple-system, sans-serif;
+      margin: 0;
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    h1 {
+      color: #38bdf8;
+      margin-bottom: 5px;
+    }
+    p {
+      color: #94a3b8;
+      margin-bottom: 30px;
+    }
+    .preview-grid {
+      display: flex;
+      gap: 30px;
+      flex-wrap: wrap;
+      justify-content: center;
+      max-width: 1200px;
+    }
+    .card {
+      background: #1e293b;
+      padding: 20px;
+      border-radius: 20px;
+      border: 1px solid #334155;
+      text-align: center;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+    }
+    .card-full {
+      width: 100%;
+      background: #1e293b;
+      padding: 20px;
+      border-radius: 20px;
+      border: 1px solid #334155;
+      text-align: center;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+    }
+    .card h3, .card-full h3 {
+      color: #f1f5f9;
+      margin-top: 0;
+    }
+    img {
+      border-radius: 20px;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.4);
+      background: #000;
+    }
+  </style>
+</head>
+<body>
+  <h1>🚖 مكتبة صور واجهات نظام الرحلات والتوصيل (DiDi / Uber Clone)</h1>
+  <p>تم حفظ جميع الصور بدقة عالية داخل مجلد <code>screenshots/</code> بالمشروع</p>
+
+  <div class="preview-grid">
+    <div class="card">
+      <h3>📱 1. شاشة تتبع الرحلة للعميل (Rider App)</h3>
+      <img src="01_customer_ride_tracking.svg" width="340" alt="Customer Tracking">
+    </div>
+
+    <div class="card">
+      <h3>🚗 2. شاشة السائق والتحكم بالرحلة (Driver Terminal)</h3>
+      <img src="02_driver_terminal_active_trip.svg" width="340" alt="Driver Terminal">
+    </div>
+
+    <div class="card">
+      <h3>⏱️ 3. نافذة استقبال طلب جديد للسائق (Incoming Request)</h3>
+      <img src="03_incoming_ride_request_dialog.svg" width="340" alt="Incoming Request Sheet">
+    </div>
+
+    <div class="card-full">
+      <h3>🖥️ 4. لوحة تحكم الإدارة وتوثيق السائقين (SaaS Fleet Admin Panel)</h3>
+      <img src="04_admin_fleet_dashboard.svg" width="920" alt="Admin SaaS Panel">
+    </div>
+  </div>
+</body>
+</html>

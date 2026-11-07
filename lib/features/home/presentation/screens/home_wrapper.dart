@@ -6,7 +6,6 @@ import '../../../profile/presentation/screens/profile_screen.dart';
 import '../../../../core/constants/app_colors.dart';
 import '../../../../injection_container.dart';
 import '../../../home/presentation/cubit/home_cubit.dart';
-import '../../../cart/presentation/cubit/cart_cubit.dart';
 import '../../../profile/presentation/cubit/profile_cubit.dart';
 
 class HomeWrapper extends StatefulWidget {
