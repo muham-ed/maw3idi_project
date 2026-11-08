@@ -76,6 +76,9 @@ const User = require('./src/models/user.model');
 const Store = require('./src/models/store.model');
 const Product = require('./src/models/product.model');
 const Order = require('./src/models/order.model');
+const MicrobusStation = require('./src/models/microbus_station.model');
+const MicrobusRoute = require('./src/models/microbus_route.model');
+const ViolationReport = require('./src/models/violation_report.model');
 
 // Associations
 Store.hasMany(Product, { foreignKey: 'storeId' });
@@ -85,6 +88,13 @@ User.hasMany(Order, { foreignKey: 'clientId', as: 'clientOrders' });
 User.hasMany(Order, { foreignKey: 'driverId', as: 'driverOrders' });
 Order.belongsTo(User, { foreignKey: 'clientId', as: 'client' });
 Order.belongsTo(User, { foreignKey: 'driverId', as: 'driver' });
+
+MicrobusRoute.belongsTo(MicrobusStation, { as: 'startStation', foreignKey: 'start_station_id' });
+MicrobusRoute.belongsTo(MicrobusStation, { as: 'endStation', foreignKey: 'end_station_id' });
+
+ViolationReport.belongsTo(Order, { foreignKey: 'order_id' });
+ViolationReport.belongsTo(User, { as: 'reporter', foreignKey: 'reporter_id' });
+ViolationReport.belongsTo(User, { as: 'provider', foreignKey: 'provider_id' });
 
 // Sync Database
 sequelize.sync({ alter: true })
