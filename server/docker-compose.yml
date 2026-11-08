@@ -1,0 +1,43 @@
+version: '3.8'
+
+services:
+  backend_api:
+    build: ..
+    container_name: didi_backend_api
+    restart: always
+    ports:
+      - "3000:3000"
+    environment:
+      - NODE_ENV=production
+      - PORT=3000
+      - DB_HOST=postgres_db
+      - DB_USER=didi_user
+      - DB_PASS=didi_password
+      - DB_NAME=didi_production
+      - REDIS_HOST=redis_geo
+    depends_on:
+      - postgres_db
+      - redis_geo
+
+  postgres_db:
+    image: postgis/postgis:15-3.3
+    container_name: didi_postgres
+    restart: always
+    environment:
+      POSTGRES_USER: didi_user
+      POSTGRES_PASSWORD: didi_password
+      POSTGRES_DB: didi_production
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+
+  redis_geo:
+    image: redis:7-alpine
+    container_name: didi_redis
+    restart: always
+    ports:
+      - "6379:6379"
+
+volumes:
+  postgres_data:

@@ -42,16 +42,31 @@ import 'features/driver/domain/usecases/get_available_orders_usecase.dart';
 import 'features/driver/presentation/cubit/driver_cubit.dart';
 
 import 'core/services/socket_service.dart';
+import 'core/services/payment_service.dart';
+import 'core/services/notification_service.dart';
+import 'core/services/otp_service.dart';
 import 'core/network/dio_client.dart';
 import 'features/admin_dashboard/presentation/cubit/admin_dashboard_cubit.dart';
 
 final sl = GetIt.instance;
 
 Future<void> init() async {
+  // External Network Client
+  const String baseUrl = 'http://192.168.1.5:3000/api/v1/';
+  final dioClient = DioClient(baseUrl: baseUrl);
+  sl.registerLazySingleton(() => dioClient.dio);
+
   // Services
   final socketService = SocketService();
   await socketService.init();
   sl.registerLazySingleton(() => socketService);
+
+  final notificationService = NotificationService();
+  await notificationService.initialize();
+  sl.registerLazySingleton(() => notificationService);
+
+  sl.registerLazySingleton(() => PaymentService(sl()));
+  sl.registerLazySingleton(() => OtpService(sl()));
   // ...
   sl.registerFactory(() => AuthCubit(
         loginUseCase: sl(),
