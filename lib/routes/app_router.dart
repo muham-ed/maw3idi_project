@@ -12,6 +12,8 @@ import '../features/order/presentation/cubit/order_cubit.dart';
 import '../features/driver/presentation/cubit/driver_cubit.dart';
 import '../features/admin_dashboard/presentation/screens/admin_dashboard_screen.dart';
 import '../features/admin_dashboard/presentation/cubit/admin_dashboard_cubit.dart';
+import '../features/microbus/presentation/screens/microbus_booking_screen.dart';
+import '../features/reports/presentation/screens/report_violation_screen.dart';
 import '../injection_container.dart' as di;
 
 class AppRouter {
@@ -24,6 +26,14 @@ class AppRouter {
           create: (context) => di.sl<AdminDashboardCubit>(),
           child: const AdminDashboardScreen(),
         ),
+      ),
+      GoRoute(
+        path: '/microbus',
+        builder: (context, state) => const MicrobusBookingScreen(),
+      ),
+      GoRoute(
+        path: '/report/:orderId',
+        builder: (context, state) => ReportViolationScreen(orderId: state.pathParameters['orderId'] ?? '0'),
       ),
       GoRoute(
         path: '/login',
