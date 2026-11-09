@@ -74,6 +74,10 @@ class SocketService {
     });
   }
 
+  void emitRideEvent(String event, Map<String, dynamic> data) {
+    socket.emit(event, data);
+  }
+
   void onLocationUpdate(Function(double lat, double lng, double bearing) callback) {
     socket.off('location_updated');
     socket.on('location_updated', (data) {

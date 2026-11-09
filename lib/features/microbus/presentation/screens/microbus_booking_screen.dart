@@ -103,7 +103,7 @@ class _MicrobusBookingScreenState extends State<MicrobusBookingScreen> {
             const Text('اختر محطة الانطلاق (الركوب):', style: TextStyle(fontWeight: FontWeight.bold)),
             const SizedBox(height: 8),
             DropdownButtonFormField<String>(
-              value: _selectedFromStationId,
+              initialValue: _selectedFromStationId,
               decoration: const InputDecoration(border: OutlineInputBorder(), prefixIcon: Icon(Icons.my_location, color: Colors.green)),
               items: _alexRoute.stations.map((station) {
                 return DropdownMenuItem(value: station.id, child: Text(station.nameArabic));
@@ -119,7 +119,7 @@ class _MicrobusBookingScreenState extends State<MicrobusBookingScreen> {
             const Text('اختر محطة الوصول (النزول):', style: TextStyle(fontWeight: FontWeight.bold)),
             const SizedBox(height: 8),
             DropdownButtonFormField<String>(
-              value: _selectedToStationId,
+              initialValue: _selectedToStationId,
               decoration: const InputDecoration(border: OutlineInputBorder(), prefixIcon: Icon(Icons.location_on, color: Colors.red)),
               items: _alexRoute.stations.map((station) {
                 return DropdownMenuItem(value: station.id, child: Text(station.nameArabic));

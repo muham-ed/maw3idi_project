@@ -126,10 +126,4 @@ Future<void> init() async {
 
   // Features - Admin Dashboard
   sl.registerFactory(() => AdminDashboardCubit(sl()));
-
-  // External
-  // ملاحظة: إذا كنت تستخدم محاكي أندرويد، استبدل IP الخاص بجهازك بـ 10.0.2.2 إذا كان السيرفر يعمل على نفس الجهاز.
-  const String baseUrl = 'http://192.168.1.5:3000/api/v1/';
-
-  sl.registerLazySingleton(() => DioClient(baseUrl: baseUrl).dio);
 }
